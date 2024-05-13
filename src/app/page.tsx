@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <div className=" flex items-center justify-center flex-col gap-5 h-screen">
-      <UserButton />
+      <UserButton afterSignOutUrl="/sign-in" />
       <h1>Clerk user id: {loggedInUser?.id}</h1>
       <h2>User Name: {username}</h2>
       <h2>Email: {loggedInUser?.emailAddresses[0].emailAddress}</h2>

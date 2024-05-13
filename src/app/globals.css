@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.cl-internal-180wb59 {
+  display: none !important;
+}
+
+.cl-cardBox,
+.cl-card {
+  border-radius: 5px !important;
+}
