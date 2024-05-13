@@ -1,12 +1,25 @@
 import { Button, Input } from "antd";
+import { UserButton } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
+import { use } from "react";
 
-export default function Home() {
+export default async function Home() {
+  const loggedInUser = await currentUser();
+  console.log(loggedInUser);
+
+  let username = loggedInUser?.username;
+  if (!username) {
+    username = loggedInUser?.firstName + "" + loggedInUser?.lastName;
+  }
+
+  username = username.replace("null", "");
+
   return (
     <div className=" flex items-center justify-center flex-col gap-5 h-screen">
-      <h1>Home Page</h1>
-
-      <Input placeholder="Basic input" className="w-60" />
-      <Button type="primary">Primary Button</Button>
+      <UserButton />
+      <h1>Clerk user id: {loggedInUser?.id}</h1>
+      <h2>User Name: {username}</h2>
+      <h2>Email: {loggedInUser?.emailAddresses[0].emailAddress}</h2>
     </div>
   );
 }
